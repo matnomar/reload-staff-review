@@ -440,8 +440,16 @@
       <div class="section-title">Pilih Leader yang Ingin Kamu Review</div>
       <div class="section-desc">Kamu bisa pilih lebih dari satu. Form akan menyesuaikan jumlah halaman sesuai pilihanmu.</div>
  
+      <!-- MANAGEMENT -->
+      <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;">— Management —</p>
+      <div class="leader-grid">
+        <div class="leader-card" onclick="toggleLeader('Roro','Operational Manager',this)">
+          <div class="leader-card-inner"><div><div class="lc-name">Roro</div><div class="lc-role">Operational Manager</div></div><div class="lc-check">✓</div></div>
+        </div>
+      </div>
+ 
       <!-- RESTAURANT -->
-      <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;">— Restaurant —</p>
+      <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin:18px 0 10px;">— Restaurant —</p>
       <div class="leader-grid">
         <div class="leader-card" onclick="toggleLeader('Jay','Restaurant Manager',this)">
           <div class="leader-card-inner"><div><div class="lc-name">Jay</div><div class="lc-role">Restaurant Manager</div></div><div class="lc-check">✓</div></div>
@@ -557,6 +565,11 @@
       <!-- 4. LEADER YANG MAU DIGANTI -->
       <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px;">Leader yang Ingin Diganti</p>
       <p style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6;">Apakah ada leader yang menurutmu perlu diganti? Boleh pilih lebih dari satu. <span style="color:var(--muted)">(Opsional)</span></p>
+ 
+      <p style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px;">Management</p>
+      <div class="leader-grid" style="margin-bottom:14px;">
+        <div class="leader-card" onclick="toggleDislike(this,'Roro')"><div class="leader-card-inner"><div><div class="lc-name">Roro</div><div class="lc-role">Operational Manager</div></div><div class="lc-check">✓</div></div></div>
+      </div>
  
       <p style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px;">Restaurant</p>
       <div class="leader-grid" style="margin-bottom:14px;">
