@@ -6,7 +6,7 @@
 <title>Staff Review — Reload Sanctuary</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
-
+ 
   :root {
     --bg: #0e0e0e;
     --surface: #161616;
@@ -20,9 +20,9 @@
     --selected-bg: rgba(200,169,126,0.12);
     --selected-border: rgba(200,169,126,0.5);
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     background: var(--bg);
     color: var(--text);
@@ -31,7 +31,7 @@
     min-height: 100vh;
     padding-bottom: 80px;
   }
-
+ 
   /* PROGRESS BAR */
   .progress-bar {
     position: fixed;
@@ -41,7 +41,7 @@
     transition: width 0.4s ease;
     z-index: 100;
   }
-
+ 
   /* HEADER */
   .header {
     background: var(--surface);
@@ -96,14 +96,14 @@
     border-radius: 20px;
     margin-top: 16px;
   }
-
+ 
   /* FORM WRAP */
   .form-wrap {
     max-width: 640px;
     margin: 0 auto;
     padding: 0 16px;
   }
-
+ 
   /* STEP DOTS */
   .steps {
     display: flex;
@@ -121,7 +121,7 @@
   }
   .step-dot.active { background: var(--accent); width: 20px; border-radius: 3px; }
   .step-dot.done { background: var(--accent2); }
-
+ 
   /* SECTION CARD */
   .section-card {
     background: var(--card);
@@ -163,7 +163,7 @@
     border-radius: 20px;
     margin-bottom: 20px;
   }
-
+ 
   /* Q BLOCK */
   .q-block { margin-bottom: 22px; }
   .q-block:last-child { margin-bottom: 0; }
@@ -177,10 +177,10 @@
   }
   .q-num { color: var(--accent); font-size: 11px; margin-right: 4px; font-weight: 600; }
   .req { color: var(--danger); margin-left: 3px; }
-
+ 
   /* DIVIDER */
   .divider { height: 1px; background: var(--border); margin: 18px 0; }
-
+ 
   /* SELECT */
   select {
     width: 100%;
@@ -200,7 +200,7 @@
   }
   select:focus { outline: none; border-color: var(--accent); }
   select option { background: #1c1c1c; }
-
+ 
   /* TEXTAREA */
   textarea {
     width: 100%;
@@ -218,7 +218,7 @@
   }
   textarea::placeholder { color: var(--muted); }
   textarea:focus { outline: none; border-color: var(--accent); }
-
+ 
   /* MULTI-SELECT CARDS (leader selection) */
   .leader-grid {
     display: grid;
@@ -253,7 +253,7 @@
     align-self: flex-start;
   }
   .leader-card-inner { display: flex; justify-content: space-between; align-items: flex-start; }
-
+ 
   /* LIKERT */
   .likert-labels {
     display: flex;
@@ -286,7 +286,7 @@
     color: #1a1410;
     font-weight: 700;
   }
-
+ 
   /* BUTTONS */
   .btn-row {
     display: flex;
@@ -309,7 +309,7 @@
   .btn-primary:hover { background: #d4b98e; transform: translateY(-1px); }
   .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--muted); }
   .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
+ 
   /* ERROR */
   .err-msg {
     background: rgba(201,126,126,0.1);
@@ -322,11 +322,11 @@
     display: none;
   }
   .err-msg.visible { display: block; }
-
+ 
   /* PAGE */
   .page { display: none; }
   .page.active { display: block; }
-
+ 
   /* SUCCESS */
   .success-screen { text-align: center; padding: 60px 24px; display: none; }
   .success-screen.active { display: block; }
@@ -339,7 +339,7 @@
     font-style: italic;
   }
   .success-screen p { color: var(--muted); font-size: 14px; line-height: 1.7; }
-
+ 
   /* SUBMITTING */
   .submitting-overlay {
     display: none;
@@ -366,14 +366,14 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="progress-bar" id="progressBar" style="width: 0%"></div>
-
+ 
 <div class="submitting-overlay" id="submittingOverlay">
   <div class="spinner"></div>
   <span>Mengirim feedback kamu...</span>
 </div>
-
+ 
 <!-- HEADER -->
 <div class="header">
   <div class="header-label">Reload Sanctuary Bali</div>
@@ -381,17 +381,17 @@
   <p>Bantu kami membangun lingkungan kerja yang lebih baik. Jawaban kamu jujur sangat berarti.</p>
   <div class="anon-badge">🔒 Sepenuhnya Anonim</div>
 </div>
-
+ 
 <div class="form-wrap">
   <div class="steps" id="stepDots"></div>
-
+ 
   <!-- PAGE 0: IDENTITY -->
   <div class="page active" id="page0">
     <div class="section-card">
       <div class="section-tag">Langkah 1</div>
       <div class="section-title">Posisi & Departemenmu</div>
       <div class="section-desc">Tidak ada nama yang diminta. Informasi ini hanya untuk konteks jawaban kamu.</div>
-
+ 
       <div class="q-block">
         <label class="q-label"><span class="q-num">Q1.</span> Kamu bekerja di departemen mana?<span class="req">*</span></label>
         <select id="dept">
@@ -401,7 +401,7 @@
           <option value="Kitchen">Kitchen</option>
         </select>
       </div>
-
+ 
       <div class="q-block">
         <label class="q-label"><span class="q-num">Q2.</span> Posisi / jabatanmu saat ini:<span class="req">*</span></label>
         <select id="posisi">
@@ -412,7 +412,7 @@
           <option value="Lainnya">Lainnya</option>
         </select>
       </div>
-
+ 
       <div class="q-block">
         <label class="q-label"><span class="q-num">Q3.</span> Sudah berapa lama kamu bekerja di Reload Sanctuary?<span class="req">*</span></label>
         <select id="lama">
@@ -423,21 +423,21 @@
           <option value="Lebih dari 6 bulan">Lebih dari 6 bulan</option>
         </select>
       </div>
-
+ 
       <div class="err-msg" id="err0">Mohon lengkapi semua pilihan sebelum melanjutkan.</div>
     </div>
     <div class="btn-row">
       <button class="btn btn-primary" onclick="goNext()">Lanjut →</button>
     </div>
   </div>
-
+ 
   <!-- PAGE 1: PILIH LEADER -->
   <div class="page" id="page1">
     <div class="section-card">
       <div class="section-tag">Langkah 2</div>
       <div class="section-title">Pilih Leader yang Ingin Kamu Review</div>
       <div class="section-desc">Kamu bisa pilih lebih dari satu. Form akan menyesuaikan jumlah halaman sesuai pilihanmu.</div>
-
+ 
       <!-- RESTAURANT -->
       <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;">— Restaurant —</p>
       <div class="leader-grid">
@@ -453,8 +453,11 @@
         <div class="leader-card" onclick="toggleLeader('Lia','Restaurant SPV',this)">
           <div class="leader-card-inner"><div><div class="lc-name">Lia</div><div class="lc-role">Restaurant SPV</div></div><div class="lc-check">✓</div></div>
         </div>
+        <div class="leader-card" onclick="toggleLeader('Caca','Cashier SPV',this)">
+          <div class="leader-card-inner"><div><div class="lc-name">Caca</div><div class="lc-role">Cashier SPV</div></div><div class="lc-check">✓</div></div>
+        </div>
       </div>
-
+ 
       <!-- BAR -->
       <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin:18px 0 10px;">— Bar —</p>
       <div class="leader-grid">
@@ -474,7 +477,7 @@
           <div class="leader-card-inner"><div><div class="lc-name">Sanjaya</div><div class="lc-role">Bar Captain</div></div><div class="lc-check">✓</div></div>
         </div>
       </div>
-
+ 
       <!-- KITCHEN -->
       <p style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin:18px 0 10px;">— Kitchen —</p>
       <div class="leader-grid">
@@ -488,7 +491,7 @@
           <div class="leader-card-inner"><div><div class="lc-name">Chef Didik</div><div class="lc-role">Jr. Sous Chef</div></div><div class="lc-check">✓</div></div>
         </div>
       </div>
-
+ 
       <div class="err-msg" id="err1">Pilih minimal satu leader untuk di-review.</div>
     </div>
     <div class="btn-row">
@@ -496,17 +499,17 @@
       <button class="btn btn-primary" onclick="buildLeaderPages()">Lanjut →</button>
     </div>
   </div>
-
+ 
   <!-- DYNAMIC LEADER PAGES injected here -->
   <div id="leaderPagesContainer"></div>
-
+ 
   <!-- PAGE FINAL: OVERALL -->
   <div class="page" id="pageFinal">
     <div class="section-card">
       <div class="section-tag">Halaman Terakhir</div>
       <div class="section-title">Penilaian Keseluruhan</div>
       <div class="section-desc">Beberapa pertanyaan terakhir tentang keseluruhan pengalamanmu di Reload Sanctuary.</div>
-
+ 
       <!-- 1. BENEFIT -->
       <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px;">Benefit Karyawan</p>
       <div class="q-block">
@@ -518,9 +521,9 @@
         <label class="q-label"><span class="q-num">▸</span> Catatan soal benefit: <span style="color:var(--muted)">(Opsional)</span></label>
         <textarea id="g_benefit_note" placeholder="Misalnya: gaji, fasilitas, jadwal, dll..."></textarea>
       </div>
-
+ 
       <div class="divider"></div>
-
+ 
       <!-- 2. KEPUASAN LEADER -->
       <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px;">Kepuasan terhadap Leader</p>
       <div class="q-block">
@@ -532,9 +535,9 @@
         <label class="q-label"><span class="q-num">▸</span> Catatan soal leadership secara umum: <span style="color:var(--muted)">(Opsional)</span></label>
         <textarea id="g_leader_note" placeholder="Tulis di sini..."></textarea>
       </div>
-
+ 
       <div class="divider"></div>
-
+ 
       <!-- 3. KEPUASAN REKAN KERJA -->
       <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px;">Kepuasan terhadap Rekan Kerja</p>
       <div class="q-block">
@@ -546,21 +549,22 @@
         <label class="q-label"><span class="q-num">▸</span> Catatan soal rekan kerja: <span style="color:var(--muted)">(Opsional)</span></label>
         <textarea id="g_coworker_note" placeholder="Tulis di sini..."></textarea>
       </div>
-
+ 
       <div class="divider"></div>
-
+ 
       <!-- 4. LEADER YANG MAU DIGANTI -->
       <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px;">Leader yang Ingin Diganti</p>
       <p style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6;">Apakah ada leader yang menurutmu perlu diganti? Boleh pilih lebih dari satu. <span style="color:var(--muted)">(Opsional)</span></p>
-
+ 
       <p style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px;">Restaurant</p>
       <div class="leader-grid" style="margin-bottom:14px;">
         <div class="leader-card" onclick="toggleDislike(this,'Jay')"><div class="leader-card-inner"><div><div class="lc-name">Jay</div><div class="lc-role">Restaurant Manager</div></div><div class="lc-check">✓</div></div></div>
         <div class="leader-card" onclick="toggleDislike(this,'Catur')"><div class="leader-card-inner"><div><div class="lc-name">Catur</div><div class="lc-role">Restaurant Manager</div></div><div class="lc-check">✓</div></div></div>
         <div class="leader-card" onclick="toggleDislike(this,'Zen')"><div class="leader-card-inner"><div><div class="lc-name">Zen</div><div class="lc-role">Restaurant SPV</div></div><div class="lc-check">✓</div></div></div>
         <div class="leader-card" onclick="toggleDislike(this,'Lia')"><div class="leader-card-inner"><div><div class="lc-name">Lia</div><div class="lc-role">Restaurant SPV</div></div><div class="lc-check">✓</div></div></div>
+        <div class="leader-card" onclick="toggleDislike(this,'Caca')"><div class="leader-card-inner"><div><div class="lc-name">Caca</div><div class="lc-role">Cashier SPV</div></div><div class="lc-check">✓</div></div></div>
       </div>
-
+ 
       <p style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px;">Bar</p>
       <div class="leader-grid" style="margin-bottom:14px;">
         <div class="leader-card" onclick="toggleDislike(this,'Ho Gan')"><div class="leader-card-inner"><div><div class="lc-name">Ho Gan</div><div class="lc-role">Bar Manager</div></div><div class="lc-check">✓</div></div></div>
@@ -569,21 +573,21 @@
         <div class="leader-card" onclick="toggleDislike(this,'Malik')"><div class="leader-card-inner"><div><div class="lc-name">Malik</div><div class="lc-role">Bar Captain</div></div><div class="lc-check">✓</div></div></div>
         <div class="leader-card" onclick="toggleDislike(this,'Sanjaya')"><div class="leader-card-inner"><div><div class="lc-name">Sanjaya</div><div class="lc-role">Bar Captain</div></div><div class="lc-check">✓</div></div></div>
       </div>
-
+ 
       <p style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px;">Kitchen</p>
       <div class="leader-grid" style="margin-bottom:14px;">
         <div class="leader-card" onclick="toggleDislike(this,'Chef Amos')"><div class="leader-card-inner"><div><div class="lc-name">Chef Amos</div><div class="lc-role">Head Chef</div></div><div class="lc-check">✓</div></div></div>
         <div class="leader-card" onclick="toggleDislike(this,'Chef Donni')"><div class="leader-card-inner"><div><div class="lc-name">Chef Donni</div><div class="lc-role">Sous Chef</div></div><div class="lc-check">✓</div></div></div>
         <div class="leader-card" onclick="toggleDislike(this,'Chef Didik')"><div class="leader-card-inner"><div><div class="lc-name">Chef Didik</div><div class="lc-role">Jr. Sous Chef</div></div><div class="lc-check">✓</div></div></div>
       </div>
-
+ 
       <div class="q-block">
         <label class="q-label"><span class="q-num">▸</span> Alasan ingin mengganti leader tersebut: <span style="color:var(--muted)">(Opsional)</span></label>
         <textarea id="g_dislike_leader_reason" placeholder="Tulis alasanmu di sini..."></textarea>
       </div>
-
+ 
       <div class="divider"></div>
-
+ 
       <!-- 5. REKAN KERJA YANG MAU DIGANTI -->
       <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px;">Rekan Kerja yang Ingin Diganti</p>
       <p style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6;">Apakah ada rekan kerja yang menurutmu perlu diganti? Tulis nama jika ada. <span style="color:var(--muted)">(Opsional)</span></p>
@@ -595,7 +599,7 @@
         <label class="q-label"><span class="q-num">▸</span> Catatan soal rekan kerja:<span class="req">*</span></label>
         <textarea id="g_dislike_coworker_reason" placeholder="Tulis catatanmu di sini... Tulis &quot;-&quot; jika tidak ada."></textarea>
       </div>
-
+ 
       <div class="err-msg" id="errFinal">Mohon isi semua pertanyaan berbintang (*) sebelum submit.</div>
     </div>
     <div class="btn-row">
@@ -603,29 +607,29 @@
       <button class="btn btn-primary" onclick="submitForm()">Kirim Review ✓</button>
     </div>
   </div>
-
+ 
   <!-- SUCCESS -->
   <div class="success-screen" id="successScreen">
     <div class="success-icon">✅</div>
     <h2>Terima kasih sudah jujur.</h2>
     <p>Feedback kamu sudah kami terima secara anonim.<br>Ini akan membantu Reload Sanctuary menjadi<br>tempat kerja yang lebih baik untuk semua.</p>
   </div>
-
+ 
 </div><!-- /form-wrap -->
-
+ 
 <script>
   // ─── STATE ───────────────────────────────────────────
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxTNreZKn4FgXM6hzpawMf1kz8syiwD0N2jKxWQLxdf5aNcmdUW-7u1Bdbr2f2Abbja/exec'; // ← ganti dengan URL lo
-
+ 
   let selectedLeaders = [];   // [{name, role}]
   let dislikedLeaders  = [];  // [name, ...]
   let pageOrder        = ['page0', 'page1', 'pageFinal'];
   let currentIdx       = 0;
-
+ 
   // ─── INIT ────────────────────────────────────────────
   renderDots();
   showPage(0);
-
+ 
   // ─── LEADER SELECT TOGGLE ────────────────────────────
   function toggleLeader(name, role, el) {
     const idx = selectedLeaders.findIndex(l => l.name === name);
@@ -637,7 +641,7 @@
       el.classList.add('selected');
     }
   }
-
+ 
   // ─── DISLIKE TOGGLE ──────────────────────────────────
   function toggleDislike(el, name) {
     const idx = dislikedLeaders.indexOf(name);
@@ -649,7 +653,7 @@
       el.classList.add('selected');
     }
   }
-
+ 
   // ─── NAVIGATION ──────────────────────────────────────
   function showPage(idx) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -662,7 +666,7 @@
     updateProgress();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
+ 
   function goNext() {
     if (!validateCurrent()) return;
     if (currentIdx < pageOrder.length - 1) {
@@ -670,14 +674,14 @@
       showPage(currentIdx);
     }
   }
-
+ 
   function goPrev() {
     if (currentIdx > 0) {
       currentIdx--;
       showPage(currentIdx);
     }
   }
-
+ 
   // ─── BUILD DYNAMIC LEADER PAGES ─────────────────────
   function buildLeaderPages() {
     if (selectedLeaders.length === 0) {
@@ -685,10 +689,10 @@
       return;
     }
     document.getElementById('err1').classList.remove('visible');
-
+ 
     // Rebuild container
     document.getElementById('leaderPagesContainer').innerHTML = '';
-
+ 
     selectedLeaders.forEach((leader, i) => {
       const pageId = `leaderPage_${i}`;
       const prefix = `lp${i}`;
@@ -701,20 +705,20 @@
         buildLikert(`${prefix}_${q}`);
       });
     });
-
+ 
     // Build final page likerts (safe to call multiple times)
     ['g_benefit','g_leader_sat','g_coworker_sat'].forEach(id => buildLikert(id));
-
+ 
     // Rebuild pageOrder
     pageOrder = ['page0', 'page1'];
     selectedLeaders.forEach((_, i) => pageOrder.push(`leaderPage_${i}`));
     pageOrder.push('pageFinal');
-
+ 
     renderDots();
     currentIdx = 2;
     showPage(currentIdx);
   }
-
+ 
   function buildLeaderPageHTML(leader, i, prefix) {
     const isLast = (i === selectedLeaders.length - 1);
     return `
@@ -722,7 +726,7 @@
       <div class="section-tag">Review ${i + 1} dari ${selectedLeaders.length}</div>
       <div class="section-title">Penilaian Leader</div>
       <div class="leader-chip">👤 ${leader.name} — ${leader.role}</div>
-
+ 
       <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px;">Leadership & Komunikasi</p>
       <div class="likert-labels"><span>Sangat Tidak Setuju</span><span>Sangat Setuju</span></div>
       <div class="q-block">
@@ -744,7 +748,7 @@
         <label class="q-label"><span class="q-num">▸</span> Keputusan dikomunikasikan dengan baik dan masuk akal.<span class="req">*</span></label>
         <div class="likert-row" id="${prefix}_l4"></div>
       </div>
-
+ 
       <div style="height:20px"></div>
       <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px;">Fairness & Perlakuan</p>
       <div class="likert-labels"><span>Sangat Tidak Setuju</span><span>Sangat Setuju</span></div>
@@ -767,7 +771,7 @@
         <label class="q-label"><span class="q-num">▸</span> Saya nyaman menyampaikan keluhan tanpa takut konsekuensi negatif.<span class="req">*</span></label>
         <div class="likert-row" id="${prefix}_f4"></div>
       </div>
-
+ 
       <div style="height:20px"></div>
       <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px;">Operasional & SOP</p>
       <div class="likert-labels"><span>Sangat Tidak Setuju</span><span>Sangat Setuju</span></div>
@@ -790,13 +794,13 @@
         <label class="q-label"><span class="q-num">▸</span> Bersikap konsisten antara perkataan dan tindakan.<span class="req">*</span></label>
         <div class="likert-row" id="${prefix}_o4"></div>
       </div>
-
+ 
       <div style="height:20px"></div>
       <div class="q-block">
         <label class="q-label"><span class="q-num">▸</span> Ada hal spesifik yang ingin kamu sampaikan tentang <strong style="color:var(--accent)">${leader.name}</strong>? <span style="color:var(--muted)">(Opsional)</span></label>
         <textarea id="${prefix}_note" placeholder="Tulis di sini... Tidak ada jawaban yang salah."></textarea>
       </div>
-
+ 
       <div class="err-msg" id="err_${prefix}">Mohon isi semua pertanyaan berbintang (*) sebelum lanjut.</div>
     </div>
     <div class="btn-row">
@@ -805,7 +809,7 @@
     </div>
     `;
   }
-
+ 
   // ─── LIKERT BUILDER ──────────────────────────────────
   function buildLikert(containerId) {
     const container = document.getElementById(containerId);
@@ -823,11 +827,11 @@
       container.appendChild(btn);
     }
   }
-
+ 
   // ─── VALIDATION ──────────────────────────────────────
   function validateCurrent() {
     const pageId = pageOrder[currentIdx];
-
+ 
     if (pageId === 'page0') {
       const ok = !!(document.getElementById('dept').value &&
                     document.getElementById('posisi').value &&
@@ -835,11 +839,11 @@
       document.getElementById('err0').classList.toggle('visible', !ok);
       return ok;
     }
-
+ 
     if (pageId === 'page1') {
       return true; // validation handled inside buildLeaderPages()
     }
-
+ 
     if (pageId && pageId.startsWith('leaderPage_')) {
       const i = parseInt(pageId.replace('leaderPage_', ''), 10);
       const prefix = `lp${i}`;
@@ -852,7 +856,7 @@
       if (errEl) errEl.classList.toggle('visible', !ok);
       return ok;
     }
-
+ 
     if (pageId === 'pageFinal') {
       const fields = ['g_benefit','g_leader_sat','g_coworker_sat'];
       const textRequired = ['g_dislike_coworker','g_dislike_coworker_reason'];
@@ -865,10 +869,10 @@
       if (!ok) { document.getElementById('errFinal').classList.add('visible'); return false; }
       return true;
     }
-
+ 
     return true;
   }
-
+ 
   // ─── DOTS & PROGRESS ─────────────────────────────────
   function renderDots() {
     const container = document.getElementById('stepDots');
@@ -882,7 +886,7 @@
     });
     updateDots();
   }
-
+ 
   function updateDots() {
     pageOrder.forEach((_, i) => {
       const dot = document.getElementById(`dot_${i}`);
@@ -892,18 +896,18 @@
       else if (i === currentIdx) dot.classList.add('active');
     });
   }
-
+ 
   function updateProgress() {
     const pct = pageOrder.length > 1
       ? Math.round((currentIdx / (pageOrder.length - 1)) * 100)
       : 0;
     document.getElementById('progressBar').style.width = pct + '%';
   }
-
+ 
   // ─── SUBMIT ──────────────────────────────────────────
   async function submitForm() {
     if (!validateCurrent()) return;
-
+ 
     const payload = {
       timestamp: new Date().toLocaleString('id-ID'),
       dept: document.getElementById('dept').value,
@@ -950,9 +954,9 @@
         alasan_ganti_rekan:    document.getElementById('g_dislike_coworker_reason')?.value || '',
       }
     };
-
+ 
     document.getElementById('submittingOverlay').classList.add('active');
-
+ 
     try {
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
@@ -963,7 +967,7 @@
     } catch (e) {
       console.warn('Submit note (no-cors mode, may have succeeded):', e);
     }
-
+ 
     document.getElementById('submittingOverlay').classList.remove('active');
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('stepDots').style.display = 'none';
